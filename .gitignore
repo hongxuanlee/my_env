@@ -1,4 +1,4 @@
-&.swp
+*.swp
 tmp
 *.DS_Store
 Session.vim
