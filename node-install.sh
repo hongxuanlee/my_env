@@ -11,7 +11,8 @@ echo -e "\033[32m install nvm and node \033[0m\n"
 
 if [ ! -f $DEPS_NVM/nvm.sh ]; then
     [ -d $DEPS_NVM ] && sudo rm -rf $DEPS_NVM
-    git clone https://github.com/creationix/nvm.git $DEPS_NVM
+    git clone https://github.com/creationix/nvm.git $DEPS_NVM 
+    cd $DEPS_NVM && git checkout `git describe --abbrev=0 --tags`
 fi
 
 . $DEPS_NVM/nvm.sh
