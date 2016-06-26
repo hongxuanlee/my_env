@@ -7,5 +7,5 @@ envpath=$(cd `dirname $0`; pwd)
 
 ln -s $envpath/vimrc ~/.vimrc
 ln -s $envpath/zshrc ~/.zshrc
-
+ln -s $envpath/tmux.conf ~/.tmux.conf
 
