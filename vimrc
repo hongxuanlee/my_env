@@ -72,9 +72,11 @@ imap <C-c> <CR><Esc>O
 " open nerdtree when not specify file path
 function! StartUpNerdTree()
 	    if 0 == argc()
-		 NERDTre  
+		 NERDTree 
 	    end
 endfunction
+
+autocmd VimEnter * call StartUpNerdTree()
 
 " js format
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
