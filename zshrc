@@ -72,4 +72,5 @@ export EDITOR='vim'
 
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias subl=\'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
+alias vim='/usr/local/Cellar/vim/7.4.1967/bin/vim'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
