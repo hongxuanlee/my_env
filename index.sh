@@ -1,0 +1,22 @@
+#!/bin/bash
+CUR_DIR=$(cd `dirname $0`; pwd)
+
+#mac
+$CUR_DIR/mac-install.sh
+
+# cmake
+$CUR_DIR/cmake-install.sh
+
+# zsh
+$CUR_DIR/zsh-install.sh
+
+# node
+$CUR_DIR/node-install.sh
+
+# upgrade vim
+$CUR_DIR/vim-install.sh
+
+# tmux
+$CUR_DIR/tmux-install.sh
+
+$CUR_DIR/link_config.sh
