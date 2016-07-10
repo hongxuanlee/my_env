@@ -24,9 +24,22 @@ if ! wget_loc="$(type -p "wget")" || [ -z "$wget_loc" ]; then
     brew install wget
 fi
 
-echo -e "\033[32m install openssl \033[0m\n"
-brew install openssl
-sudo brew link --force openssl
+# echo -e "\033[32m install openssl \033[0m\n"
+# brew install openssl
+# sudo brew link --force openssl
+
+# install shadowsocks
+echo -e "\033[32m install shadowsocks \033[0m\n"
+cd $MYDPES_DIR
+if [ ! -e $APPS_DIR/ShadowsocksX.app ];  then
+	[ ! -e $MYDPES_DIR/ShadowsocksX-2.6.3.dmg ] && curl -O "https://github.com/shadowsocks/shadowsocks-iOS/releases/download/2.6.3/ShadowsocksX-2.6.3.dmg"
+	hdiutil attach ShadowsocksX-2.6.3.dmg
+	cd /Volumes/Shadowsocks
+	#sudo installer -pkg ShadowsocksX.app -target "/Application"
+    sudo cp -R ShadowsocksX.app ./Applications
+    cd $MYDPES_DIR
+    hdiutil detach /Volumes/Shadowsocks
+fi
 
 echo -e "\033[32m install dockutil \033[0m\n"
 # dock 
@@ -41,9 +54,11 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 osascript -e 'tell application "System Events" to set the autohide of the dock preferences to true'
 $MYDPES_DIR/dockutil/scripts/dockutil --remove all
 $MYDPES_DIR/dockutil/scripts/dockutil --add $APPS_DIR/Google\ Chrome.app
-$MYDPES_DIR/dockutil/scripts/dockutil --add $APPS_DIR/iTerm.app
+$MYDPES_DIR/dockutil/scripts/dockutil --add $APPS_DIR/iTerm\ 2.app
 $MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/System\ Preferences.app
-
+$MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/WebStorm.app
+$MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/钉钉.app
+$MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/Sublime\ Text.app
 # finder
 defaults write com.apple.finder AppleShowAllFiles FALSE
 
