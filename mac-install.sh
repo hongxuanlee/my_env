@@ -6,7 +6,7 @@ MYDPES_DIR=$HOME/deps
 TMP_DIR=$CUR_DIR/tmp
 APPS_DIR=/Applications
 
-[ ! -d $MYDPES_DIR ] &&  mkdir $MYDPES_DIR
+[ ! -d $DEPS_DIR ] &&  mkdir $DEPS_DIR
 [ ! -d $TMP_DIR ] && mkdir $TMP_DIR
 
 echo -e "\033[32m install brew \033[0m\n"
@@ -30,35 +30,35 @@ fi
 
 # install shadowsocks
 echo -e "\033[32m install shadowsocks \033[0m\n"
-cd $MYDPES_DIR
+cd $DEPS_DIR
 if [ ! -e $APPS_DIR/ShadowsocksX.app ];  then
-	[ ! -e $MYDPES_DIR/ShadowsocksX-2.6.3.dmg ] && curl -O "https://github.com/shadowsocks/shadowsocks-iOS/releases/download/2.6.3/ShadowsocksX-2.6.3.dmg"
+	[ ! -e $DEPS_DIR/ShadowsocksX-2.6.3.dmg ] && curl -O "https://github.com/shadowsocks/shadowsocks-iOS/releases/download/2.6.3/ShadowsocksX-2.6.3.dmg"
 	hdiutil attach ShadowsocksX-2.6.3.dmg
 	cd /Volumes/Shadowsocks
 	#sudo installer -pkg ShadowsocksX.app -target "/Application"
     sudo cp -R ShadowsocksX.app ./Applications
-    cd $MYDPES_DIR
+    cd $DEPS_DIR
     hdiutil detach /Volumes/Shadowsocks
 fi
 
 echo -e "\033[32m install dockutil \033[0m\n"
 # dock 
 # https://github.com/kcrawford/dockutil.git
-cd $MYDPES_DIR
+cd $DEPS_DIR
 
-[ ! -d $MYDPES_DIR/dockutil ] && git clone https://github.com/kcrawford/dockutil.git
+[ ! -d $DEPS_DIR/dockutil ] && git clone https://github.com/kcrawford/dockutil.git
 
 echo -e "\033[32m set mac preference \033[0m\n"
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 osascript -e 'tell application "System Events" to set the autohide of the dock preferences to true'
-$MYDPES_DIR/dockutil/scripts/dockutil --remove all
-$MYDPES_DIR/dockutil/scripts/dockutil --add $APPS_DIR/Google\ Chrome.app
-$MYDPES_DIR/dockutil/scripts/dockutil --add $APPS_DIR/iTerm\ 2.app
-$MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/System\ Preferences.app
-$MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/WebStorm.app
-$MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/钉钉.app
-$MYDPES_DIR/dockutil/scripts/dockutil --add /Applications/Sublime\ Text.app
+$DEPS_DIR/dockutil/scripts/dockutil --remove all
+$DEPS_DIR/dockutil/scripts/dockutil --add $APPS_DIR/Google\ Chrome.app
+$DEPS_DIR/dockutil/scripts/dockutil --add $APPS_DIR/iTerm\ 2.app
+$DEPS_DIR/dockutil/scripts/dockutil --add /Applications/System\ Preferences.app
+$DEPS_DIR/dockutil/scripts/dockutil --add /Applications/WebStorm.app
+$DEPS_DIR/dockutil/scripts/dockutil --add /Applications/钉钉.app
+$DEPS_DIR/dockutil/scripts/dockutil --add /Applications/Sublime\ Text.app
 # finder
 defaults write com.apple.finder AppleShowAllFiles FALSE
 
