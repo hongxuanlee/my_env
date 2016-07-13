@@ -3,7 +3,7 @@ CUR_DIR=$(cd `dirname $0`; pwd)
 DEPS_DIR=$HOME/deps
 function install_app(){
     if [ ! -n "$1" ] || [ ! -n "$2" ] || [ ! -n "$3" ]; then
-        exit
+        return
     fi
     name=$1
     t=$2

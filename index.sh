@@ -10,6 +10,9 @@ $CUR_DIR/cmake-install.sh
 # zsh
 $CUR_DIR/zsh-install.sh
 
+#app
+$CUR_DIR/app-install.sh
+
 # node
 $CUR_DIR/node-install.sh
 
