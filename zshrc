@@ -44,7 +44,7 @@ plugins=(git autojump powerline)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kino"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kino:node:./node_modules/.bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
