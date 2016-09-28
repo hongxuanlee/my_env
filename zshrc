@@ -44,7 +44,7 @@ plugins=(git autojump powerline)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kino:node:./node_modules/.bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kino:node:./node_modules/.bin:/usr/local/mysql/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -63,7 +63,11 @@ export TERM='screen-256color'
 autoload -U compinit && compinit -u
 
 export EDITOR='vim'
-
+#set jdk and tomcat environment
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/3.6.0.jdk/Contents/Home"
+#export TOMCAT_HOME="/opt/taobao-tomcat-7.0.54.1"
+#export CLASSPATH=.:$JAVA_HOME/lib:$TOMCAT_HOME/lib/servlet-api.jar:$CLASSPATH
+#export PATH=$JAVA_HOME/bin:$PATH
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -74,3 +78,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='/usr/local/Cellar/vim/7.4.1967/bin/vim'
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+alias dailydata='mysql -h10.189.196.127 -uTMS_PLUS_APP -pceuvdwws -P3306'
+
+alias schedule='cd ~/workspace/schedule && vim'

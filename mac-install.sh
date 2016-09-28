@@ -24,9 +24,9 @@ if ! wget_loc="$(type -p "wget")" || [ -z "$wget_loc" ]; then
     brew install wget
 fi
 
-# echo -e "\033[32m install openssl \033[0m\n"
-# brew install openssl
-# sudo brew link --force openssl
+echo -e "\033[32m install openssl \033[0m\n"
+brew install openssl
+sudo brew link --force openssl
 
 # install shadowsocks
 echo -e "\033[32m install shadowsocks \033[0m\n"

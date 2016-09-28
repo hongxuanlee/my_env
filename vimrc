@@ -34,8 +34,8 @@ filetype plugin indent on    " required
 
 set number
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set t_Co=256
 syntax on
 set background=dark
@@ -94,4 +94,6 @@ set laststatus=2
 
 filetype plugin indent on " Enable automatic filetype detection, filetype-specific plugins/indentation
 
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 set autoread
+
