@@ -27,7 +27,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-obsession'
 Plugin 'mattn/emmet-vim'
-
+Plugin 'jistr/vim-nerdtree-tabs'
 call vundle#end()            " required
 
 filetype plugin indent on    " required
@@ -85,15 +85,23 @@ autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-
 set rtp+=~/mydeps/powerline/powerline/bindings/vim/
 
-
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 " Always show statusline
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+set nocompatible
+syntax enable
 set laststatus=2
-
 filetype plugin indent on " Enable automatic filetype detection, filetype-specific plugins/indentation
 
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 set autoread
 
+let g:nerdtree_tabs_open_on_console_startup=1
