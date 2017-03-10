@@ -30,3 +30,4 @@ fi
 
 echo nvm version is $(nvm --version)
 echo node version is $(node --version)
+

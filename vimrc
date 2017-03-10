@@ -28,6 +28,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-obsession'
 Plugin 'mattn/emmet-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
+
 call vundle#end()            " required
 
 filetype plugin indent on    " required
@@ -104,4 +105,5 @@ filetype plugin indent on " Enable automatic filetype detection, filetype-specif
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 set autoread
 
-let g:nerdtree_tabs_open_on_console_startup=1
+map  :silent! NERDTreeToggle
+" let NERDTreeIgnore=['node_modules$']

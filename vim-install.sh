@@ -4,8 +4,8 @@ if ! vim_version="$(vim --version |awk '{print $5}' |head -1)" || \
 	[ `echo "$vim_version<7.4" | bc` -eq 1 ]; then
 	brew install vim
 fi
+
 #install Vundle
-exit
 [ ! -d ~/.vim/bundle/vundle ] && git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 #Vundle.vim
