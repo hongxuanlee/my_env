@@ -1,8 +1,24 @@
+# If you come from bash you might have to change your $PATH.
+export GOPATH="$HOME/workspace/gopath"
+export PATH=$HOME/bin:/usr/local/bin:./node_modules/.bin:~/bin:/usr/local/go/bin:$GOPATH/bin:$PATH
+
+# Path to your oh-my-zsh installation.
 export ZSH=/Users/kino/deps/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-#ZSH_THEME=random
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -10,6 +26,9 @@ export LANG=en_US.UTF-8
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -40,45 +59,47 @@ export LANG=en_US.UTF-8
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump powerline)
-
-# User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kino:node:./node_modules/.bin:/usr/local/mysql/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
-#nvm
-export NVM_DIR="$HOME/deps/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-#autojump 
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
-#powerline
-export TERM='screen-256color'
-. $HOME/deps/powerline/powerline/bindings/zsh/powerline.zsh
+[[ -s /Users/kino.li/.autojump/etc/profile.d/autojump.sh ]] && source /Users/kino.li/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
 
-export EDITOR='vim'
-#set jdk and tomcat environment
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/3.6.0.jdk/Contents/Home"
-#export TOMCAT_HOME="/opt/taobao-tomcat-7.0.54.1"
-#export CLASSPATH=.:$JAVA_HOME/lib:$TOMCAT_HOME/lib/servlet-api.jar:$CLASSPATH
-#export PATH=$JAVA_HOME/bin:$PATH
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+export LC_CTYPE = "UTF-8",
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim='/usr/local/Cellar/vim/7.4.1967/bin/vim'
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
-alias dailydata='mysql -h10.189.196.127 -uTMS_PLUS_APP -pceuvdwws -P3306'
-
-alias schedule='cd ~/workspace/schedule && vim'

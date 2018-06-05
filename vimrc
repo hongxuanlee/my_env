@@ -28,6 +28,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-obsession'
 Plugin 'mattn/emmet-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'prettier/vim-prettier'
+Plugin 'fatih/vim-go'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()            " required
 
@@ -40,7 +43,9 @@ set shiftwidth=2
 set t_Co=256
 syntax on
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colors peaksea 
+
 set backspace=indent,eol,start
 
 " vim-less
@@ -62,6 +67,17 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint'
 
+" use goimports for formatting
+let g:go_fmt_command = "goimports"
+
+" turn highlighting on
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:syntastic_go_checkers = ['go', 'vet', 'errcheck']
 
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
@@ -72,9 +88,9 @@ imap <C-c> <CR><Esc>O
 
 " open nerdtree when not specify file path
 function! StartUpNerdTree()
-	    if 0 == argc()
-		 NERDTree 
-	    end
+        if 0 == argc()
+         NERDTree 
+        end
 endfunction
 
 autocmd VimEnter * call StartUpNerdTree()
@@ -86,11 +102,11 @@ autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-set rtp+=~/mydeps/powerline/powerline/bindings/vim/
+" set rtp+=~/mydeps/powerline/powerline/bindings/vim/
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
 " Always show statusline
 set encoding=utf-8
 set t_Co=256
@@ -106,4 +122,3 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 set autoread
 
 map  :silent! NERDTreeToggle
-" let NERDTreeIgnore=['node_modules$']
